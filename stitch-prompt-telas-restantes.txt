@@ -1,0 +1,80 @@
+Design system: Lumora Tech / Banco de Ideias
+
+Palette:
+- Background base: #080c14 (deep navy)
+- Card surface: #0e1420
+- Card hover: #141c2e
+- Text primary: #f0ede8 (warm off-white)
+- Text secondary: #8a9bb0 (blue-gray)
+- Text muted: #4a5568
+- Accent: #4f7cff (electric blue)
+- Borders: rgba(255,255,255,0.06) subtle / rgba(255,255,255,0.10) mid
+- Border-radius: 16px cards, 12px inputs
+- Font: Geist Sans, -webkit-font-smoothing: antialiased
+
+Logo mark: small rounded square (#4f7cff/15 bg, #4f7cff/25 border, solid #4f7cff dot inside)
+
+Follow the same style as the Home, Minhas Ideias, and Revisão da Ideia screens already designed.
+Mobile-first, max-width 640px centered on desktop.
+
+---
+
+SCREEN 1: Login / Auth (/page.tsx)
+
+Layout: centered vertically, max-w-sm, px-6 py-10
+Header: logo mark + "Banco de Ideias" title (text-2xl font-semibold #f0ede8) + subtitle "Suas ideias, organizadas." (#8a9bb0 text-sm)
+Tab toggle: bg-[#0e1420] border border-white/5 rounded-xl p-1 — active tab = bg-white text-black rounded-lg, inactive = text-[#8a9bb0]
+Tabs: "Entrar" | "Criar conta"
+Form fields: bg-[#0e1420] border border-white/10 rounded-xl px-4 py-3 text-sm text-[#f0ede8] placeholder #4a5568 — focus: border-white/20
+Fields for "Entrar": Email, Senha (with eye toggle icon)
+Fields for "Criar conta": Nome, Email, Senha, Confirmar senha
+Eye icon: zinc-500 color, right-3 absolute, toggles password visibility
+Primary button: bg-white text-black rounded-xl py-3 font-semibold — disabled: opacity-40
+Error state: text-red-400 text-xs text-center
+Footer note (register): "Senha mínima de 6 caracteres." text-[#8a9bb0] text-xs text-center mt-4
+
+---
+
+SCREEN 2: Captura (/captura/page.tsx)
+
+Header: back arrow (←) to /home + title "Nova ideia" or "Ajustar ideia"
+Loading overlay: full-screen bg-[#080c14] with rotating inspirational phrases, centered vertically — phrase text-[15px] text-[#8a9bb0] max-w-sm, fade between phrases every 5s — loading indicator: 3 small dots animation
+Main area: flex flex-col justify-end, pb-4
+Textarea: bg-[#0e1420] border border-white/10 text-[#f0ede8] placeholder-[#4a5568] rounded-2xl px-4 py-4 text-sm — focus: border-white/20 — 4 rows — resize-none
+Bottom button row:
+  - Audio button (left): bg-[#0e1420] text-[#8a9bb0] border border-white/10 rounded-2xl px-4 py-3 — when recording: bg-red-600 text-white animate-pulse — icon: mic
+  - Submit button (right, flex-1): bg-white text-black rounded-2xl py-3 font-semibold — disabled: opacity-30
+Error message: bg-red-900/20 border border-red-800/50 rounded-2xl px-4 py-3 text-red-400 text-sm
+
+---
+
+SCREEN 3: Busca (/busca/page.tsx)
+
+Header: back arrow (←) to /home + title "Buscar ideia"
+Main: centered vertically, flex-col justify-center, max-w-lg mx-auto
+Subtitle: "O que você precisa? Descreva com suas palavras." text-[#8a9bb0] text-sm text-center mb-6
+Textarea: same style as Captura, 3 rows, placeholder "Ex: preciso de uma ideia para vídeo corporativo..."
+Submit button: bg-white text-black — label "Buscar →"
+Suggestions section:
+  - Label: "Sugestões" text-[#8a9bb0] text-xs text-center mb-3
+  - Each suggestion: full-width button, text-left, text-[#8a9bb0] hover:text-[#f0ede8], px-4 py-2.5 rounded-xl, border border-transparent hover:border-white/8 hover:bg-white/5
+  - Prefix each with "→ "
+  - Examples: "ideia de vídeo", "algo sobre negócio", "insights que tive", "referências criativas"
+
+---
+
+SCREEN 4: Resultados (/resultados/page.tsx)
+
+Header: back arrow (←) to /busca + two-line header:
+  - Line 1: "RESULTADOS PARA" — 11px uppercase tracking-widest text-[#8a9bb0]
+  - Line 2: query in quotes — text-[#f0ede8] text-sm font-medium truncate
+Result cards (max 3): bg-[#0e1420] border border-white/10 rounded-2xl px-5 py-5 — hover: border-white/20 bg-[#141c2e] scale-[1.01] — active: scale-[0.99] — shadow: 0 0 0 1px rgba(255,255,255,0.03), inset 0 1px 0 rgba(255,255,255,0.04)
+Card anatomy:
+  - Top row: position badge (#1, #2, #3) font-mono text-[#8a9bb0] text-xs + potencial badge (emerald/yellow/zinc rounded-full border uppercase tracking-widest 10px)
+  - Title: text-[#f0ede8] text-sm font-medium
+  - Summary: text-[#8a9bb0] text-xs
+  - AI explanation (if any): text-[#8a9bb0] text-xs border-t border-white/5 pt-3 with "→ " prefix
+  - Tags: text-[#8a9bb0] text-xs flex gap-2
+Empty state: centered, "Nenhuma ideia encontrada." text-[#8a9bb0] + "Tente buscar com outras palavras ou adicione mais ideias." + link "Adicionar ideia →"
+Error state: bg-red-900/20 border border-red-800/50 rounded-2xl px-5 py-4 text-red-400 text-sm
+Bottom link: "Nova busca →" text-[#8a9bb0] text-sm hover:text-[#f0ede8]

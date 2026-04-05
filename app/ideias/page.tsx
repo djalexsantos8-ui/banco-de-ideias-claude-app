@@ -135,13 +135,13 @@ export default async function IdeiasPage({
                 ? `Nenhuma ideia encontrada para "${busca}".`
                 : prioridade
                 ? 'Nenhuma ideia nessa faixa ainda.'
+                : categoria
+                ? `Nenhuma ideia na categoria "${categoria}".`
                 : 'Nenhuma ideia ainda.'}
             </p>
-            {!busca && !prioridade && (
-              <Link href="/captura" className="text-[#f0ede8] text-sm underline">
-                Adicionar primeira ideia →
-              </Link>
-            )}
+            <Link href="/captura" className="inline-block text-[#f0ede8] text-sm underline hover:opacity-70 transition-opacity">
+              Adicionar nova ideia →
+            </Link>
           </div>
         )}
 
@@ -189,8 +189,8 @@ export default async function IdeiasPage({
 
                 {/* Footer */}
                 <div className="flex items-center justify-between pt-1 text-[#4a5568] text-[12px]">
-                  <span>{ideia.categoria || ''}</span>
                   <span>{new Date(ideia.criado_em).toLocaleDateString('pt-BR')}</span>
+                  {ideia.aprovada && <span className="text-emerald-500">✓ aprovada</span>}
                 </div>
 
               </div>
@@ -200,7 +200,7 @@ export default async function IdeiasPage({
       </div>
 
       {/* FAB pill */}
-      <div className="fixed bottom-24 left-1/2 -translate-x-1/2 z-40 md:hidden">
+      <div className="fixed bottom-24 left-1/2 -translate-x-1/2 z-40">
         <Link
           href="/captura"
           className="bg-[#f0ede8] text-[#080c14] px-7 py-3.5 rounded-full shadow-2xl flex items-center gap-2.5 active:scale-95 transition-transform duration-150 hover:opacity-90"

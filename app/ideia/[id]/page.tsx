@@ -2,6 +2,7 @@ import { createServerSupabaseClient } from '@/lib/supabase-server'
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import AcoesIdeia from './AcoesIdeia'
+import BackButton from './BackButton'
 import TranscricaoIdeia from './TranscricaoIdeia'
 import BlocoTexto from '@/components/BlocoTexto'
 import BlocoLista from '@/components/BlocoLista'
@@ -18,7 +19,7 @@ function corScoreTexto(score: number | null): string {
   return 'text-[#4f7cff]'
 }
 
-const corDificuldade: Record<string, string> = {
+const corEscala: Record<string, string> = {
   baixo: 'text-emerald-400',
   médio: 'text-yellow-400',
   alto: 'text-red-400',
@@ -62,12 +63,7 @@ export default async function IdeiaPage({
 
       {/* Header */}
       <header className="flex items-center justify-between px-6 py-5 border-b border-white/5 max-w-[672px] mx-auto w-full sticky top-0 bg-[#080c14] z-40">
-        <Link
-          href="/ideias"
-          className="text-[#8a9bb0] hover:text-[#f0ede8] transition-all duration-200 ease-out text-sm"
-        >
-          ← Minhas ideias
-        </Link>
+        <BackButton />
         <span className="font-headline text-[10px] text-[#4a5568] uppercase tracking-widest bg-[#0e1420] border border-white/8 px-3 py-1 rounded-full">
           {ideia.categoria || 'geral'}
         </span>
@@ -124,13 +120,13 @@ export default async function IdeiaPage({
             </div>
             <div className="flex flex-col items-center">
               <span className="font-headline text-[11px] font-semibold uppercase tracking-[0.05em] text-[#4a5568] mb-1">Execução</span>
-              <span className={`text-[15px] font-semibold ${corDificuldade[ideia.dificuldade] || 'text-[#f0ede8]'}`}>
+              <span className={`text-[15px] font-semibold ${corEscala[ideia.dificuldade] || 'text-[#f0ede8]'}`}>
                 {ideia.dificuldade || '—'}
               </span>
             </div>
             <div className="flex flex-col items-end">
               <span className="font-headline text-[11px] font-semibold uppercase tracking-[0.05em] text-[#4a5568] mb-1">Custo</span>
-              <span className={`text-[15px] font-semibold ${corDificuldade[custo || ''] || 'text-[#f0ede8]'}`}>
+              <span className={`text-[15px] font-semibold ${corEscala[custo || ''] || 'text-[#f0ede8]'}`}>
                 {custo || '—'}
               </span>
             </div>

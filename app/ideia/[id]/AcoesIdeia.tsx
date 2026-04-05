@@ -9,26 +9,42 @@ export default function AcoesIdeia({ id, aprovada }: { id: string; aprovada: boo
   const [loadingDeletar, setLoadingDeletar] = useState(false)
   const [confirmarDelete, setConfirmarDelete] = useState(false)
   const [menuAberto, setMenuAberto] = useState(false)
+  const [erro, setErro] = useState('')
   const router = useRouter()
 
   async function aprovar() {
     setLoadingAprovar(true)
-    await fetch('/api/aprovar', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id }),
-    })
-    router.push('/home')
+    setErro('')
+    try {
+      const res = await fetch('/api/aprovar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id }),
+      })
+      if (!res.ok) throw new Error('Erro ao aprovar')
+      router.push('/home')
+    } catch {
+      setLoadingAprovar(false)
+      setErro('Não foi possível aprovar. Tente novamente.')
+    }
   }
 
   async function deletar() {
     setLoadingDeletar(true)
-    await fetch('/api/deletar', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id }),
-    })
-    router.push('/ideias')
+    setErro('')
+    try {
+      const res = await fetch('/api/deletar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id }),
+      })
+      if (!res.ok) throw new Error('Erro ao deletar')
+      router.push('/ideias')
+    } catch {
+      setLoadingDeletar(false)
+      setConfirmarDelete(false)
+      setErro('Não foi possível excluir. Tente novamente.')
+    }
   }
 
   return (
@@ -67,6 +83,13 @@ export default function AcoesIdeia({ id, aprovada }: { id: string; aprovada: boo
           </>
         )}
       </div>
+
+      {/* Erro */}
+      {erro && (
+        <div className="mt-2 bg-red-900/20 border border-red-800/50 rounded-xl px-4 py-2">
+          <p className="text-red-400 text-xs">{erro}</p>
+        </div>
+      )}
 
       {/* Botões de ação (aprovação) */}
       {!aprovada && (
