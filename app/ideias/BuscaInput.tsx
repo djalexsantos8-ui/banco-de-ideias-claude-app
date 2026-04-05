@@ -1,9 +1,9 @@
 'use client'
 
 import { useRouter, useSearchParams } from 'next/navigation'
-import { useState } from 'react'
+import { useState, Suspense } from 'react'
 
-export default function BuscaInput() {
+function BuscaInputContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const [valor, setValor] = useState(searchParams.get('busca') || '')
@@ -52,5 +52,13 @@ export default function BuscaInput() {
         ↵
       </button>
     </form>
+  )
+}
+
+export default function BuscaInput() {
+  return (
+    <Suspense>
+      <BuscaInputContent />
+    </Suspense>
   )
 }

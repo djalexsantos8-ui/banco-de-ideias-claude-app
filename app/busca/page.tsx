@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import BottomNav from '@/components/BottomNav'
@@ -12,7 +12,7 @@ const sugestoes = [
   'referências criativas',
 ]
 
-export default function BuscaPage() {
+function BuscaContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const [query, setQuery] = useState(searchParams.get('q') || '')
@@ -94,5 +94,13 @@ export default function BuscaPage() {
 
       <BottomNav />
     </main>
+  )
+}
+
+export default function BuscaPage() {
+  return (
+    <Suspense>
+      <BuscaContent />
+    </Suspense>
   )
 }

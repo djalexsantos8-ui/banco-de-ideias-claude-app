@@ -1,11 +1,11 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState, useRef, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import LoadingIdeia from './LoadingIdeia'
 
-export default function CapturaPage() {
+function CapturaContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const ideia_id = searchParams.get('ajustar')
@@ -219,5 +219,13 @@ export default function CapturaPage() {
         </div>
       </main>
     </>
+  )
+}
+
+export default function CapturaPage() {
+  return (
+    <Suspense>
+      <CapturaContent />
+    </Suspense>
   )
 }
