@@ -3,7 +3,7 @@
 import { useState, useRef, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
-import LoadingIdeia from './LoadingIdeia'
+import LoadingScreen from '@/components/LoadingScreen'
 
 function CapturaContent() {
   const router = useRouter()
@@ -100,7 +100,8 @@ function CapturaContent() {
 
   return (
     <>
-      {loading && <LoadingIdeia />}
+      {loading && <LoadingScreen mensagem="Processando sua ideia..." />}
+      {transcrevendo && <LoadingScreen mensagem="Transcrevendo áudio..." />}
       <main className="min-h-screen bg-[#080c14] flex flex-col">
 
         {/* Gradient decorativo */}
@@ -138,14 +139,6 @@ function CapturaContent() {
               <p className="text-[#f0ede8]/30 text-[15px] leading-relaxed max-w-xs">
                 O arquivo intelectual aguarda. Registre sua percepção sem filtros.
               </p>
-            </div>
-          )}
-
-          {transcrevendo && (
-            <div className="text-center py-8 mb-auto">
-              <div className="text-[#8a9bb0] text-sm animate-pulse">
-                Transcrevendo áudio...
-              </div>
             </div>
           )}
 
