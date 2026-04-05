@@ -16,11 +16,13 @@ function BuscaContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const [query, setQuery] = useState(searchParams.get('q') || '')
+  const [buscando, setBuscando] = useState(false)
 
   useEffect(() => {
     const q = searchParams.get('q')
     if (q) {
       setQuery(q)
+      setBuscando(true)
       router.push(`/resultados?q=${encodeURIComponent(q)}`)
     }
   }, [])
@@ -28,6 +30,7 @@ function BuscaContent() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     if (!query.trim()) return
+    setBuscando(true)
     router.push(`/resultados?q=${encodeURIComponent(query.trim())}`)
   }
 
@@ -69,10 +72,15 @@ function BuscaContent() {
           </div>
           <button
             type="submit"
-            disabled={!query.trim()}
-            className="w-full bg-[#f0ede8] text-[#080c14] rounded-full py-4 font-headline font-bold text-[14px] disabled:opacity-30 hover:bg-white active:scale-[0.95] active:shadow-none shadow-sm transition-all duration-150 ease-out"
+            disabled={!query.trim() || buscando}
+            className="w-full bg-[#f0ede8] text-[#080c14] rounded-full py-4 font-headline font-bold text-[14px] disabled:opacity-30 hover:bg-white active:scale-[0.95] active:shadow-none shadow-sm transition-all duration-150 ease-out flex items-center justify-center gap-2"
           >
-            Buscar →
+            {buscando ? (
+              <>
+                <div className="w-4 h-4 rounded-full border-2 border-[#080c14]/20 border-t-[#080c14] animate-spin" />
+                Buscando...
+              </>
+            ) : 'Buscar →'}
           </button>
         </form>
 
@@ -83,7 +91,7 @@ function BuscaContent() {
           {sugestoes.map(s => (
             <button
               key={s}
-              onClick={() => router.push(`/resultados?q=${encodeURIComponent(s)}`)}
+              onClick={() => { setBuscando(true); router.push(`/resultados?q=${encodeURIComponent(s)}`) }}
               className="w-full text-left text-[#8a9bb0] hover:text-[#f0ede8] text-[15px] px-4 py-3 rounded-xl hover:bg-white/5 border border-transparent hover:border-white/8 active:scale-[0.97] active:opacity-80 transition-all duration-150 ease-out"
             >
               → {s}
