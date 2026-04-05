@@ -182,7 +182,7 @@ function CapturaContent() {
                 type="button"
                 onClick={toggleGravacao}
                 disabled={bloqueado}
-                className={`flex items-center gap-2 px-6 py-4 rounded-full text-sm font-headline font-semibold transition-all duration-200 ease-out disabled:opacity-40 ${
+                className={`flex items-center gap-2 px-6 py-4 rounded-full text-sm font-headline font-semibold transition-all duration-150 ease-out disabled:opacity-40 active:scale-[0.95] active:opacity-80 ${
                   gravando
                     ? 'bg-red-600 text-white animate-pulse'
                     : 'bg-white/5 hover:bg-white/10 text-[#f0ede8]'
@@ -201,7 +201,7 @@ function CapturaContent() {
                 type="submit"
                 onClick={handleSubmit}
                 disabled={bloqueado || !conteudo.trim()}
-                className="flex-1 flex items-center justify-center gap-2 bg-[#f0ede8] text-[#080c14] rounded-full py-4 font-headline font-bold text-[14px] disabled:opacity-30 hover:bg-white active:scale-[0.98] transition-all duration-200 ease-out"
+                className="flex-1 flex items-center justify-center gap-2 bg-[#f0ede8] text-[#080c14] rounded-full py-4 font-headline font-bold text-[14px] disabled:opacity-30 hover:bg-white active:scale-[0.95] active:shadow-none shadow-sm transition-all duration-150 ease-out"
               >
                 {loading ? 'Processando...' : 'Enviar ideia'}
                 {!loading && (

@@ -53,7 +53,7 @@ export default function AcoesIdeia({ id, aprovada }: { id: string; aprovada: boo
       <div className="relative">
         <button
           onClick={() => setMenuAberto(!menuAberto)}
-          className="absolute top-0 right-0 text-zinc-400 hover:text-white p-2 transition-all duration-200 ease-out text-lg leading-none"
+          className="absolute top-0 right-0 text-zinc-400 hover:text-white p-2 transition-all duration-150 ease-out active:scale-[0.85] active:opacity-70 text-lg leading-none"
           aria-label="Opções"
         >
           ···
@@ -68,14 +68,14 @@ export default function AcoesIdeia({ id, aprovada }: { id: string; aprovada: boo
             <div className="absolute right-0 top-8 z-20 bg-[#0e1420] border border-white/10 rounded-2xl overflow-hidden shadow-xl min-w-[160px]">
               <Link
                 href={`/captura?ajustar=${id}`}
-                className="block px-4 py-3 text-sm text-white hover:bg-white/5 transition-all duration-200 ease-out"
+                className="block px-4 py-3 text-sm text-white hover:bg-white/5 active:opacity-70 transition-all duration-150 ease-out"
                 onClick={() => setMenuAberto(false)}
               >
                 Ajustar ideia
               </Link>
               <button
                 onClick={() => { setMenuAberto(false); setConfirmarDelete(true) }}
-                className="w-full text-left px-4 py-3 text-sm text-red-400 hover:bg-white/5 transition-all duration-200 ease-out"
+                className="w-full text-left px-4 py-3 text-sm text-red-400 hover:bg-white/5 active:opacity-70 transition-all duration-150 ease-out"
               >
                 Excluir ideia
               </button>
@@ -96,14 +96,14 @@ export default function AcoesIdeia({ id, aprovada }: { id: string; aprovada: boo
         <div className="flex gap-3 pt-2">
           <Link
             href={`/captura?ajustar=${id}`}
-            className="flex-1 bg-[#0e1420] text-white border border-white/10 rounded-2xl py-3 text-sm font-medium text-center hover:border-white/20 transition-all duration-200 ease-out"
+            className="flex-1 bg-[#0e1420] text-white border border-white/10 rounded-2xl py-3 text-sm font-medium text-center hover:border-white/20 active:scale-[0.97] active:opacity-80 transition-all duration-150 ease-out"
           >
             Ajustar
           </Link>
           <button
             onClick={aprovar}
             disabled={loadingAprovar}
-            className="flex-1 bg-white text-black rounded-2xl py-3 text-sm font-semibold disabled:opacity-40 hover:opacity-90 transition-all duration-200 ease-out"
+            className="flex-1 bg-white text-black rounded-2xl py-3 text-sm font-semibold disabled:opacity-40 hover:opacity-90 active:scale-[0.95] active:shadow-none shadow-sm transition-all duration-150 ease-out"
           >
             {loadingAprovar ? 'Salvando...' : 'Aprovar'}
           </button>
@@ -119,14 +119,14 @@ export default function AcoesIdeia({ id, aprovada }: { id: string; aprovada: boo
             <div className="flex gap-3 pt-2">
               <button
                 onClick={() => setConfirmarDelete(false)}
-                className="flex-1 bg-white/8 text-white border border-white/10 rounded-2xl py-3 text-sm font-medium hover:bg-white/12 transition-all duration-200 ease-out"
+                className="flex-1 bg-white/8 text-white border border-white/10 rounded-2xl py-3 text-sm font-medium hover:bg-white/12 active:scale-[0.97] active:opacity-80 transition-all duration-150 ease-out"
               >
                 Cancelar
               </button>
               <button
                 onClick={deletar}
                 disabled={loadingDeletar}
-                className="flex-1 bg-red-600 text-white rounded-2xl py-3 text-sm font-semibold disabled:opacity-40 hover:opacity-90 transition-all duration-200 ease-out"
+                className="flex-1 bg-red-600 text-white rounded-2xl py-3 text-sm font-semibold disabled:opacity-40 hover:opacity-90 active:scale-[0.97] active:opacity-80 transition-all duration-150 ease-out"
               >
                 {loadingDeletar ? 'Excluindo...' : 'Excluir'}
               </button>

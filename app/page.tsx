@@ -51,7 +51,7 @@ function PasswordInput({
         <button
           type="button"
           onClick={() => setShow(s => !s)}
-          className="absolute right-4 top-1/2 -translate-y-1/2 text-[#4a5568] hover:text-[#f0ede8] transition-all duration-200"
+          className="absolute right-4 top-1/2 -translate-y-1/2 text-[#4a5568] hover:text-[#f0ede8] active:scale-[0.85] active:opacity-70 transition-all duration-150"
         >
           <EyeIcon open={show} />
         </button>
@@ -165,7 +165,7 @@ export default function LoginPage() {
           <button
             type="button"
             onClick={() => switchMode('entrar')}
-            className={`flex-1 py-2.5 text-sm font-headline font-semibold rounded-full transition-all duration-200 ease-out ${
+            className={`flex-1 py-2.5 text-sm font-headline font-semibold rounded-full transition-all duration-150 ease-out active:scale-[0.97] active:opacity-80 ${
               mode === 'entrar' ? 'bg-white text-[#080c14] shadow-sm' : 'text-[#f0ede8]/40 hover:text-[#f0ede8]/60'
             }`}
           >
@@ -174,7 +174,7 @@ export default function LoginPage() {
           <button
             type="button"
             onClick={() => switchMode('criar')}
-            className={`flex-1 py-2.5 text-sm font-headline font-semibold rounded-full transition-all duration-200 ease-out ${
+            className={`flex-1 py-2.5 text-sm font-headline font-semibold rounded-full transition-all duration-150 ease-out active:scale-[0.97] active:opacity-80 ${
               mode === 'criar' ? 'bg-white text-[#080c14] shadow-sm' : 'text-[#f0ede8]/40 hover:text-[#f0ede8]/60'
             }`}
           >
@@ -212,7 +212,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-[#f0ede8] text-[#080c14] rounded-xl py-4 font-headline font-bold text-sm disabled:opacity-40 hover:opacity-95 active:scale-[0.98] transition-all duration-150 ease-out shadow-xl shadow-black/20"
+            className="w-full bg-[#f0ede8] text-[#080c14] rounded-xl py-4 font-headline font-bold text-sm disabled:opacity-40 hover:opacity-95 active:scale-[0.95] active:shadow-none shadow-xl shadow-black/20 transition-all duration-150 ease-out"
           >
             {loading
               ? 'Aguarde...'

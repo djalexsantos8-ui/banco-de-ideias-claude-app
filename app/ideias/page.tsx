@@ -71,7 +71,7 @@ export default async function IdeiasPage({
     return qs ? `/ideias?${qs}` : '/ideias'
   }
 
-  const chipBase = 'shrink-0 text-[11px] font-headline font-semibold uppercase tracking-[0.05em] px-4 py-2 rounded-full transition-all duration-150 ease-out'
+  const chipBase = 'shrink-0 text-[11px] font-headline font-semibold uppercase tracking-[0.05em] px-4 py-2 rounded-full transition-all duration-150 ease-out active:scale-[0.95] active:opacity-80'
   const chipAtivo = 'bg-[#141c2e] text-[#4f7cff] border border-[#4f7cff]/30'
   const chipInativo = 'bg-white/5 text-[#f0ede8] hover:bg-white/10 border border-transparent'
 
@@ -203,7 +203,7 @@ export default async function IdeiasPage({
       <div className="fixed bottom-24 left-1/2 -translate-x-1/2 z-40">
         <Link
           href="/captura"
-          className="bg-[#f0ede8] text-[#080c14] px-7 py-3.5 rounded-full shadow-2xl flex items-center gap-2.5 active:scale-95 transition-transform duration-150 hover:opacity-90"
+          className="bg-[#f0ede8] text-[#080c14] px-7 py-3.5 rounded-full shadow-2xl flex items-center gap-2.5 active:scale-[0.95] active:shadow-none hover:opacity-90 transition-all duration-150 ease-out"
         >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
             <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>

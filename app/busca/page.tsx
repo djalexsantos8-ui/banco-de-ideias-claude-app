@@ -70,7 +70,7 @@ function BuscaContent() {
           <button
             type="submit"
             disabled={!query.trim()}
-            className="w-full bg-[#f0ede8] text-[#080c14] rounded-full py-4 font-headline font-bold text-[14px] disabled:opacity-30 hover:bg-white active:scale-[0.98] transition-all duration-150 ease-out"
+            className="w-full bg-[#f0ede8] text-[#080c14] rounded-full py-4 font-headline font-bold text-[14px] disabled:opacity-30 hover:bg-white active:scale-[0.95] active:shadow-none shadow-sm transition-all duration-150 ease-out"
           >
             Buscar →
           </button>
@@ -84,7 +84,7 @@ function BuscaContent() {
             <button
               key={s}
               onClick={() => router.push(`/resultados?q=${encodeURIComponent(s)}`)}
-              className="w-full text-left text-[#8a9bb0] hover:text-[#f0ede8] text-[15px] px-4 py-3 rounded-xl hover:bg-white/5 border border-transparent hover:border-white/8 transition-all duration-150 ease-out"
+              className="w-full text-left text-[#8a9bb0] hover:text-[#f0ede8] text-[15px] px-4 py-3 rounded-xl hover:bg-white/5 border border-transparent hover:border-white/8 active:scale-[0.97] active:opacity-80 transition-all duration-150 ease-out"
             >
               → {s}
             </button>

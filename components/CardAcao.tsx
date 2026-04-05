@@ -28,7 +28,7 @@ export default function CardAcao({ texto }: CardAcaoProps) {
       </p>
       <button
         onClick={executar}
-        className="mt-1 w-full bg-[#080c14]/20 hover:bg-[#080c14]/30 active:scale-[0.98] text-[#080c14] font-headline font-bold text-[13px] uppercase tracking-[0.08em] rounded-xl py-3 transition-all duration-150 ease-out"
+        className="mt-1 w-full bg-[#080c14]/20 hover:bg-[#080c14]/30 active:scale-[0.95] active:opacity-80 active:shadow-none shadow-sm text-[#080c14] font-headline font-bold text-[13px] uppercase tracking-[0.08em] rounded-xl py-3 transition-all duration-150 ease-out"
       >
         Executar agora →
       </button>

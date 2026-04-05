@@ -47,7 +47,7 @@ export default async function HomePage() {
           {/* PRIMARY */}
           <Link
             href="/captura"
-            className="w-full py-8 bg-[#f0ede8] text-[#080c14] rounded-2xl font-headline font-extrabold text-[20px] tracking-tight text-center hover:opacity-90 active:scale-[0.98] transition-all duration-200 ease-out flex flex-col items-center gap-1"
+            className="w-full py-8 bg-[#f0ede8] text-[#080c14] rounded-2xl font-headline font-extrabold text-[20px] tracking-tight text-center hover:opacity-90 active:scale-[0.95] active:shadow-none shadow-sm transition-all duration-150 ease-out flex flex-col items-center gap-1"
           >
             <span className="font-headline text-[11px] font-bold uppercase tracking-[0.1em] text-[#080c14]/50">
               Insight Imediato
@@ -58,7 +58,7 @@ export default async function HomePage() {
           {/* SECONDARY */}
           <Link
             href="/busca"
-            className="w-full py-5 bg-[#0e1420] text-[#f0ede8] border border-white/10 rounded-2xl font-headline font-semibold text-[16px] text-center hover:border-white/20 hover:bg-[#141c2e] active:scale-[0.98] transition-all duration-200 ease-out"
+            className="w-full py-5 bg-[#0e1420] text-[#f0ede8] border border-white/10 rounded-2xl font-headline font-semibold text-[16px] text-center hover:border-white/20 hover:bg-[#141c2e] active:scale-[0.97] active:opacity-80 transition-all duration-150 ease-out"
           >
             Preciso de uma ideia
           </Link>
@@ -66,7 +66,7 @@ export default async function HomePage() {
           {/* TERTIARY */}
           <Link
             href="/ideias"
-            className="w-full py-4 text-[#8a9bb0] rounded-2xl font-headline font-semibold text-[14px] text-center hover:text-[#f0ede8] active:scale-[0.98] transition-all duration-200 ease-out flex items-center justify-center gap-2"
+            className="w-full py-4 text-[#8a9bb0] rounded-2xl font-headline font-semibold text-[14px] text-center hover:text-[#f0ede8] active:scale-[0.97] active:opacity-80 transition-all duration-150 ease-out flex items-center justify-center gap-2"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>

@@ -10,7 +10,7 @@ export default function BottomNav() {
   const isIdeias = pathname.startsWith('/ideias') || pathname.startsWith('/ideia/')
   const isBusca = pathname.startsWith('/busca') || pathname.startsWith('/resultados')
 
-  const itemBase = 'flex flex-col items-center justify-center gap-1 transition-all duration-200'
+  const itemBase = 'flex flex-col items-center justify-center gap-1 transition-all duration-150 active:scale-[0.88] active:opacity-70'
   const itemActive = 'text-[#f0ede8]'
   const itemInactive = 'text-[#4a5568] hover:text-[#8a9bb0]'
 
