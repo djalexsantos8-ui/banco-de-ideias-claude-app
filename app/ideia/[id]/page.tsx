@@ -8,6 +8,7 @@ import BlocoTexto from '@/components/BlocoTexto'
 import BlocoLista from '@/components/BlocoLista'
 import CardAcao from '@/components/CardAcao'
 import IdeiasSimilares from '@/components/IdeiasSimilares'
+import ListaLinks from '@/components/ListaLinks'
 import BottomNav from '@/components/BottomNav'
 import { buscarIdeiasSimilares, normalizarEmbedding } from '@/lib/buscar-similares'
 import FadeInContainer from './FadeInContainer'
@@ -174,7 +175,14 @@ export default async function IdeiaPage({
           </section>
         ) : null}
 
-        {/* ── SEÇÃO 6: Similares ───────────────────────────────── */}
+        {/* ── SEÇÃO 6: Links úteis ─────────────────────────────── */}
+        {ideia.links_uteis?.length > 0 && (
+          <section>
+            <ListaLinks links={ideia.links_uteis} />
+          </section>
+        )}
+
+        {/* ── SEÇÃO 7: Similares ───────────────────────────────── */}
         <IdeiasSimilares similares={similares} temEmbedding={!!embeddingAtual} />
 
         {/* ── SEÇÃO 7: Transcrição + meta ──────────────────────── */}

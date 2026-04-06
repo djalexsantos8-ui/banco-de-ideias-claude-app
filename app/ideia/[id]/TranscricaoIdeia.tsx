@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import CopyButton from '@/components/CopyButton'
 
 export default function TranscricaoIdeia({ conteudo }: { conteudo: string }) {
   const [aberto, setAberto] = useState(false)
@@ -9,21 +10,25 @@ export default function TranscricaoIdeia({ conteudo }: { conteudo: string }) {
 
   return (
     <div className="bg-[#0e1420] border border-white/8 rounded-2xl overflow-hidden shadow-[0_0_0_1px_rgba(255,255,255,0.03)]">
+      {/* Header: label + copy — outside the toggle button to avoid nested <button> */}
+      <div className="flex items-center justify-between px-5 pt-4 pb-1">
+        <p className="text-[11px] text-zinc-500 uppercase tracking-widest">
+          Transcrição da ideia
+        </p>
+        <CopyButton texto={conteudo} />
+      </div>
+
+      {/* Toggle row: preview text + chevron */}
       <button
         onClick={() => setAberto(!aberto)}
-        className="w-full flex items-start justify-between px-5 py-4 text-left gap-3 hover:bg-white/[0.02] active:bg-white/[0.04] transition-all duration-200 ease-out"
+        className="w-full flex items-start justify-between px-5 pb-4 pt-1 text-left gap-3 hover:bg-white/[0.02] active:bg-white/[0.04] transition-all duration-200 ease-out"
       >
-        <div className="flex-1 min-w-0">
-          <p className="text-[11px] text-zinc-500 uppercase tracking-widest mb-1.5">
-            Transcrição da ideia
-          </p>
-          <p
-            className="text-zinc-400 text-xs leading-relaxed truncate transition-opacity duration-200 ease-out"
-            style={{ opacity: aberto ? 0 : 1, height: aberto ? 0 : 'auto', overflow: 'hidden' }}
-          >
-            {preview}
-          </p>
-        </div>
+        <p
+          className="flex-1 text-zinc-400 text-xs leading-relaxed truncate transition-opacity duration-200 ease-out"
+          style={{ opacity: aberto ? 0 : 1, height: aberto ? 0 : 'auto', overflow: 'hidden' }}
+        >
+          {preview}
+        </p>
         <span className="text-zinc-400 hover:text-white text-xs shrink-0 mt-0.5 transition-all duration-200 ease-out">
           {aberto ? '▲' : '▼'}
         </span>
